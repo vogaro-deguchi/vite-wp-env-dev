@@ -9,3 +9,6 @@ yarn
 yarn wp-start
 yarn watch
 ```
+
+localhost:8888/wp-login.php
+admin / password
