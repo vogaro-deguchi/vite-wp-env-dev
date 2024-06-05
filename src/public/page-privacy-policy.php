@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <main>
-  main
+  privacy-policy
 </main>
 
 <?php get_footer(); ?>

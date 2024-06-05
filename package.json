@@ -4,13 +4,14 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "watch": "vite build --watch",
+    "watch": "vite build --watch & node watch.js",
     "style:lint": "stylelint \"src/**/*.scss\"",
     "lint": "npm run html:lint && npm run style:lint -- --fix",
     "wp-start": "npx wp-env start",
     "wp-stop": "npx wp-env stop"
   },
   "dependencies": {
+    "chokidar": "^3.6.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-node": "^11.1.0",
@@ -31,6 +32,7 @@
     "stylelint-prettier": "^2.0.0",
     "stylelint-scss": "^4.3.0",
     "vite-plugin-ejs": "^1.7.0",
+    "vite-plugin-live-reload": "^3.0.3",
     "vite-plugin-sass-glob-import": "^3.0.2",
     "vite-plugin-static-copy": "^1.0.5",
     "vue": "^3.0.4"

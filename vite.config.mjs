@@ -1,6 +1,4 @@
 import { defineConfig } from 'vite';
-// import { ViteEjsPlugin } from "vite-plugin-ejs";
-// import { viteStaticCopy } from 'vite-plugin-static-copy'
 import sassGlobImports from 'vite-plugin-sass-glob-import';
 import { globSync } from 'glob';
 import path from 'node:path';
@@ -30,6 +28,7 @@ const inputObject = { ...scssFiles, ...jsFiles };
 
 export default defineConfig({
   root: './src',
+  publicDir: './public',
   build: {
     outDir: '../dist',
     rollupOptions: {
@@ -41,24 +40,14 @@ export default defineConfig({
       },
     },
   },
-  // resolve: {
-  //   alias: {
-  //     '@/': path.join(__dirname, './src/'),
-  //   },
-  // },
   plugins: [
-    // ViteEjsPlugin(),
     sassGlobImports(),
-    // viteStaticCopy({
-    //   targets: [
-    //     {
-    //       src: path.resolve(__dirname, 'src/themes/wp-env-dev/index.php'),
-    //       dest: path.resolve(__dirname, 'dist/'),
-    //     },
-    //   ]
-    // }),
   ],
   server: {
-    port: 3000
+    port: 3000,
+    watch: {
+		  usePolling: true,
+      extraWatchFiles: ['./public/**'],
+	  },
   }
 });
