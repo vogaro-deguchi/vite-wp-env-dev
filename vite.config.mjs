@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url';
 const jsFiles = Object.fromEntries(
   globSync('src/**/*.js', { ignore: ['node_modules/**','**/modules/**','**/dist/**,']}).map(file => [
     path.relative(
-      'src/',
+      'src/assets/',
       file.slice(0, file.length - path.extname(file).length)
     ),
     fileURLToPath(new URL(file, import.meta.url))
@@ -17,7 +17,7 @@ const jsFiles = Object.fromEntries(
 const scssFiles = Object.fromEntries(
   globSync('src/**/*.scss', { ignore: ['src/**/_*.scss'] }).map(file => [
     path.relative(
-      'src/',
+      'src/assets/',
       file.slice(0, file.length - path.extname(file).length)
     ),
     fileURLToPath(new URL(file, import.meta.url))
